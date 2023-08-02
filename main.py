@@ -83,7 +83,6 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Try typing anything and I will do my best to respond!')
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-
     if ACTIVE:
         message_type: str = update.message.chat.type
         text: str = update.message.text
@@ -94,7 +93,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         sentiment = sia.polarity_scores(text)['compound']
         print('Bot:', response, sentiment) 
         await update.message.reply_text(response)
-        if sentiment < 0:
+        if sentiment < -0.3:
             send_SMS(data['Contact'])
     else:
         await update.message.reply_text('Use /start to start the bot')

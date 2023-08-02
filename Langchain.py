@@ -1,5 +1,5 @@
 from langchain.prompts.prompt import PromptTemplate
-from langchain.llms import OpenAI
+from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
 import os
@@ -13,7 +13,7 @@ template = """Imagine you are a chatbot with name ListenerAI_Bot,
       career guidance, and emergency contacts. based on given conversation : {history} ,
       respond to user for the given input: {input}"""
     
-llm = OpenAI(temperature=0.9)
+llm = ChatOpenAI(model_name='gpt-3.5-turbo-16k', temperature=0.1)
 PROMPT = PromptTemplate(input_variables=["history", "input"], template=template)
 conversation = ConversationChain(
     prompt=PROMPT,
@@ -21,5 +21,4 @@ conversation = ConversationChain(
     verbose=True,
     memory=ConversationBufferMemory(),
 )
-
 
