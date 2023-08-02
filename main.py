@@ -77,7 +77,6 @@ async def upload_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     resp=conversation.predict(input=(f"hi, my name is {data['Name']}"))
     await update.message.reply_text('Data uploaded successfully! ' + resp)
 
-
 # Lets us use the /help command
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Try typing anything and I will do my best to respond!')
@@ -97,9 +96,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             send_SMS(data['Contact'])
     else:
         await update.message.reply_text('Use /start to start the bot')
+
 async def error(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print(f'Update {update} caused error {context.error}')
-
 
 if __name__ == '__main__':
     app = Application.builder().token(TOKEN).build()
