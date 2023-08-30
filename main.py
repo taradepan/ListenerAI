@@ -93,7 +93,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         print('Bot:', response, sentiment) 
         await update.message.reply_text(response)
         if sentiment < -0.3:
-            send_SMS(data['Contact'])
+            send_SMS(data['Contact'], data['Name'])
     else:
         await update.message.reply_text('Use /start to start the bot')
 

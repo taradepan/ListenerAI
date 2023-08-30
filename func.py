@@ -12,8 +12,8 @@ auth_token = os.getenv("TWILIO_AUTH_TOKEN")
 # Create a Twilio client
 sms = Client(account_sid, auth_token)
 
-def send_SMS(TO):
-    message = "Hello from Twilio! sentiment analysis is negative"
+def send_SMS(TO, user):
+    message = f"{user} is feeling negative"
 
     # Send the SMS message
     message = sms.messages.create(
