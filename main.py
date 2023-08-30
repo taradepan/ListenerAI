@@ -79,7 +79,7 @@ async def upload_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # Lets us use the /help command
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('Try typing anything and I will do my best to respond!')
+    await update.message.reply_text('Try typing anything and I will do my best to respond! or use /start')
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if ACTIVE:
