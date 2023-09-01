@@ -18,7 +18,7 @@ def send_SMS(TO, user):
     # Send the SMS message
     message = sms.messages.create(
         body=message,
-        from_='+17623395521',
+        from_='+1234567890',
         to=TO
     )
 
